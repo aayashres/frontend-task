@@ -1,6 +1,6 @@
 import type { Product } from "@/types/product";
 
-const img = (file: string) => `https://fakestoreapi.com/img/${file}`;
+const img = (id: number) => `/images/products/${id}.png`;
 
 /**
  * Snapshot of the Fake Store API catalogue. It is only used when the live API
@@ -14,7 +14,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday essentials in the main compartment.",
     category: "men's clothing",
-    image: img("81fPKd-2AYL._AC_SL1500_.jpg"),
+    image: img(1),
     rating: { rate: 3.9, count: 120 },
   },
   {
@@ -24,7 +24,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing.",
     category: "men's clothing",
-    image: img("71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"),
+    image: img(2),
     rating: { rate: 4.1, count: 259 },
   },
   {
@@ -34,7 +34,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "Great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors.",
     category: "men's clothing",
-    image: img("71li-ujtlUL._AC_UX679_.jpg"),
+    image: img(3),
     rating: { rate: 4.7, count: 500 },
   },
   {
@@ -44,7 +44,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "The color could be slightly different between on the screen and in practice. Please note that body builds vary by person, therefore, detailed size information should be reviewed below.",
     category: "men's clothing",
-    image: img("71YXzeOuslL._AC_UY879_.jpg"),
+    image: img(4),
     rating: { rate: 2.1, count: 430 },
   },
   {
@@ -55,7 +55,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance.",
     category: "jewelery",
-    image: img("71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"),
+    image: img(5),
     rating: { rate: 4.6, count: 400 },
   },
   {
@@ -65,7 +65,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "Satisfaction Guaranteed. Return or exchange any order within 30 days. Designed and sold by Hafeez Center in the United States.",
     category: "jewelery",
-    image: img("61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg"),
+    image: img(6),
     rating: { rate: 3.9, count: 70 },
   },
   {
@@ -75,7 +75,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day.",
     category: "jewelery",
-    image: img("71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"),
+    image: img(7),
     rating: { rate: 3, count: 400 },
   },
   {
@@ -85,7 +85,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel.",
     category: "jewelery",
-    image: img("51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg"),
+    image: img(8),
     rating: { rate: 1.9, count: 100 },
   },
   {
@@ -95,7 +95,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "USB 3.0 and USB 2.0 Compatibility. Fast data transfers. Improve PC Performance. High Capacity. Compatibility formatted NTFS for Windows 10, Windows 8.1, Windows 7.",
     category: "electronics",
-    image: img("61IBBVJvSDL._AC_SY879_.jpg"),
+    image: img(9),
     rating: { rate: 3.3, count: 203 },
   },
   {
@@ -105,7 +105,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "Easy upgrade for faster boot up, shutdown, application load and response. Boosts burst write performance, making it ideal for typical PC workloads.",
     category: "electronics",
-    image: img("61U7T1koQqL._AC_SX679_.jpg"),
+    image: img(10),
     rating: { rate: 2.9, count: 470 },
   },
   {
@@ -116,7 +116,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "3D NAND flash are applied to deliver high transfer speeds. Remarkable transfer speeds that enable faster bootup and improved overall system performance.",
     category: "electronics",
-    image: img("71kWymZ+c+L._AC_SX679_.jpg"),
+    image: img(11),
     rating: { rate: 4.8, count: 319 },
   },
   {
@@ -127,7 +127,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "Expand your PS4 gaming experience. Play anywhere. Fast and easy setup. Sleek design with high capacity, 3-year manufacturer's limited warranty.",
     category: "electronics",
-    image: img("61mtL65D4cL._AC_SX679_.jpg"),
+    image: img(12),
     rating: { rate: 4.8, count: 400 },
   },
   {
@@ -137,7 +137,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "21.5 inches Full HD (1920 x 1080) widescreen IPS display. Radeon free Sync technology. Zero-frame design | ultra-thin | 4ms response time | IPS panel.",
     category: "electronics",
-    image: img("81QpkIctqPL._AC_SX679_.jpg"),
+    image: img(13),
     rating: { rate: 2.9, count: 250 },
   },
   {
@@ -148,7 +148,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side. QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration.",
     category: "electronics",
-    image: img("81Zt42ioCgL._AC_SX679_.jpg"),
+    image: img(14),
     rating: { rate: 2.2, count: 140 },
   },
   {
@@ -158,7 +158,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "Note: The Jackets is US standard size, Please choose size as your usual wear. Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece.",
     category: "women's clothing",
-    image: img("51Y5NI-I5jL._AC_UX679_.jpg"),
+    image: img(15),
     rating: { rate: 2.6, count: 235 },
   },
   {
@@ -168,7 +168,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "100% POLYURETHANE (shell) 100% POLYESTER (lining) 75% POLYESTER 25% COTTON (SWEATER). Faux leather material for style and comfort.",
     category: "women's clothing",
-    image: img("81XH0e8fefL._AC_UY879_.jpg"),
+    image: img(16),
     rating: { rate: 2.9, count: 340 },
   },
   {
@@ -178,7 +178,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "Lightweight perfect for trip or casual wear. Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat.",
     category: "women's clothing",
-    image: img("71HblAHs5xL._AC_UY879_-2.jpg"),
+    image: img(17),
     rating: { rate: 3.8, count: 679 },
   },
   {
@@ -188,7 +188,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline.",
     category: "women's clothing",
-    image: img("71z3kpMAYsL._AC_UY879_.jpg"),
+    image: img(18),
     rating: { rate: 4.7, count: 130 },
   },
   {
@@ -198,7 +198,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for the Perfect Fit. Lightweight, roomy and highly breathable.",
     category: "women's clothing",
-    image: img("51eg55uWmdL._AC_UX679_.jpg"),
+    image: img(19),
     rating: { rate: 4.5, count: 146 },
   },
   {
@@ -208,7 +208,7 @@ export const FALLBACK_PRODUCTS: Product[] = [
     description:
       "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print, V-Neck, Fashion Tees, The fabric is soft and has some stretch.",
     category: "women's clothing",
-    image: img("61pHAEJ4NML._AC_UX679_.jpg"),
+    image: img(20),
     rating: { rate: 3.6, count: 145 },
   },
 ];
