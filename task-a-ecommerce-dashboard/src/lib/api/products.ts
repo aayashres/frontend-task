@@ -7,8 +7,9 @@ const cacheOptions = { next: { revalidate: PRODUCT_REVALIDATE_SECONDS } };
 
 /**
  * Runs a request and, if the API is unreachable or failing server-side,
- * resolves with the bundled snapshot instead so the UI keeps working.
- * Client errors (e.g. 404) still propagate.
+ * resolves with the bundled snapshot instead so the UI keeps working. A 403
+ * from the public catalogue API can mean its CDN blocked the deployment server.
+ * Other client errors (e.g. 404) still propagate.
  */
 async function withFallback<T>(
   request: () => Promise<T>,
@@ -17,7 +18,10 @@ async function withFallback<T>(
   try {
     return { data: await request(), isFallback: false };
   } catch (error) {
-    if (error instanceof ApiError && (error.isNetworkError || error.isServerError)) {
+    if (
+      error instanceof ApiError &&
+      (error.isNetworkError || error.isServerError || error.status === 403)
+    ) {
       console.warn(`[api] falling back to bundled data: ${error.message}`);
       return { data: fallback(), isFallback: true };
     }
@@ -27,12 +31,15 @@ async function withFallback<T>(
 
 function sortById(products: Product[], sort?: SortOrder): Product[] {
   // Mirrors the API: `sort=desc` returns the highest ids first.
-  return [...products].sort((a, b) => (sort === "desc" ? b.id - a.id : a.id - b.id));
+  return [...products].sort((a, b) =>
+    sort === "desc" ? b.id - a.id : a.id - b.id,
+  );
 }
 
 export function getProducts(sort?: SortOrder): Promise<ApiResult<Product[]>> {
   return withFallback(
-    () => apiFetch<Product[]>("/products", { query: { sort }, ...cacheOptions }),
+    () =>
+      apiFetch<Product[]>("/products", { query: { sort }, ...cacheOptions }),
     () => sortById(FALLBACK_PRODUCTS, sort),
   );
 }
